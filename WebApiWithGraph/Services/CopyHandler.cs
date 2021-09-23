@@ -12,6 +12,8 @@ namespace WebApiWithGraph.Services
             user.surname = graphUser.Surname;
             user.userPrincipalName = graphUser.UserPrincipalName;
             user.email = graphUser.Mail;
+            user.EmployeeId = graphUser.EmployeeId;
+            user.JobTitle = graphUser.JobTitle;
 
             return user;
         }

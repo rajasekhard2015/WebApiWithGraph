@@ -35,9 +35,11 @@ namespace WebApiWithGraph.Controllers
                 // Initialize the GraphServiceClient.
                 GraphServiceClient client = await MicrosoftGraphClient.GetGraphServiceClient();
 
+               
                 // Load user profile.
-                var user = await client.Users[id].Request().GetAsync();
 
+                var user = await client.Users[id].Request().GetAsync();
+                
                 // Copy Microsoft-Graph User to DTO User
                 objUser = CopyHandler.UserProperty(user);
 
@@ -68,8 +70,9 @@ namespace WebApiWithGraph.Controllers
                 // Initialize the GraphServiceClient.
                 GraphServiceClient client = await MicrosoftGraphClient.GetGraphServiceClient();
 
+           
                 // Load users profiles.
-                var userList = await client.Users.Request().GetAsync();
+                var userList = await client.Users.Request().Top(999).GetAsync();
 
                 // Copy Microsoft User to DTO User
                 foreach (var user in userList)
@@ -102,11 +105,18 @@ namespace WebApiWithGraph.Controllers
             try
             {
 
+
+                   string[] scopes = new[]
+                   {
+                    "User.ReadWrite",
+                    "User.ReadWrite.All"
+                   };
+
                 // Initialize the GraphServiceClient.
                 GraphServiceClient client = await MicrosoftGraphClient.GetGraphServiceClient();
 
                 // Load group profile.
-                var groupofMembers = await client.Groups[id].Members.Request().GetAsync();
+                var groupofMembers = await client.Groups[id].Members.Request().Top(999).GetAsync();
 
 
 

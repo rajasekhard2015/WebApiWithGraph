@@ -10,6 +10,10 @@ namespace WebApiWithGraph.Models
         public string surname { get; set; }
         public string userPrincipalName { get; set; }
         public string email { get; set; }
+
+        public string JobTitle { get; set;}
+
+        public string EmployeeId { get; set; }
     }
 
     public class Users

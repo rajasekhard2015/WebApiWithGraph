@@ -7,6 +7,7 @@ using System.Linq;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
 
+
 namespace WebApiWithGraph.Services
 {
     public static class MicrosoftGraphClient
@@ -56,7 +57,6 @@ namespace WebApiWithGraph.Services
 
             return graphClient;
         }
-
 
         private static async Task<IAuthenticationProvider> GetAuthProvider()
         {
